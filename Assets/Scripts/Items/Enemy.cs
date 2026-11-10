@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class Enemy : MonoBehaviour, IDamagable
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] float flashWait;
     [SerializeField] int flashTimes;
+    
 
     WaitForSeconds flashWaitTimer;
     WaitForSeconds FlashWaitTimer
@@ -30,6 +32,8 @@ public class Enemy : MonoBehaviour, IDamagable
     public void Damage(int direction)
     {
         FlashDamage();
+        //faltaba el StarCoroutine
+        StartCoroutine(FlashDamage());
     }
 
     IEnumerator FlashDamage()
