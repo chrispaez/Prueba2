@@ -8,6 +8,12 @@ public class PlayerColorChanger : MonoBehaviour
     {
         GameEvents.OnTargetDestroyed += TargetDestroyedHandler;
     }
+//faltaba desuscribirse
+    void OnDisable()
+    {
+        GameEvents.OnTargetDestroyed -= TargetDestroyedHandler;
+    }
+    
 
     void TargetDestroyedHandler(GameItem gameItem)
     {
@@ -19,5 +25,6 @@ public class PlayerColorChanger : MonoBehaviour
         {
             spriteRenderer.color = Color.blue;
         }
+        
     }
 }
